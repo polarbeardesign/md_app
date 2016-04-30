@@ -205,6 +205,27 @@ font-weight: bold;
 margin: 0 0 1em 0;
 }
 
+input, textarea {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
+  background: #eff9ff;
+  border: 1px solid #68a5d2;
+  box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  padding: 0.3em;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  }
+
+input[type=submit] {
+  cursor: pointer;
+  }
 
 .row {
       display: -webkit-flex;
