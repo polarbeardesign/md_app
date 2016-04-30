@@ -80,4 +80,11 @@ class PagesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  # Custom
+  def home
+    @page = Page.find_by_id(1)
+    render "pages/show", :layout => "home"
+  end
+
 end

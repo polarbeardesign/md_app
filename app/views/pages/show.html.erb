@@ -1,15 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
+<article class="container-fluid">
+<h1>
   <%= @page.title %>
-</p>
+</H1>
 
 <p>
-  <b>Body:</b>
-  <%= @page.body %>
+  <%=  markdown @page.body %>
 </p>
-
+</article>
 
 <%= link_to 'Edit', edit_page_path(@page) %> |
 <%= link_to 'Back', pages_path %>

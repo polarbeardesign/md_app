@@ -1,0 +1,250 @@
+
+@import "bootstrap";
+/*@import "bootstrap-sprockets";*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body {
+	margin: 0;
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+p, td {
+  line-height: 1.4em;
+  margin-bottom: 1em;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+/*----------------------------------------------------
+   Navigation
+-------------------------------------------------------*/
+
+nav ul {
+  margin-top: 0px;
+  list-style: none;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  }
+
+nav a, nav a:visited {
+  display: block;
+  cursor: pointer;
+  border: 1px solid #88ddf7;
+  color: #fff;
+  text-decoration: none;
+  }
+
+nav li { /* all list items */
+  margin: -1px 10px 0; /*margin between top nav boxes - my code*/
+  padding: 0.5em;
+ }
+nav a:hover, nav a.sfhover {/* hover styles - my code */
+  text-decoration: none;
+  background: #0574ab;
+  color: #fff;
+  }
+
+nav#top-nav ul {
+  width: 100%;
+  background: #f54929;
+  font-family: "Myriad Pro", sans-serif;
+  font-weight: bold;
+  color: #fff;
+  }
+
+nav#footer-nav {
+display: inline;
+  }
+
+nav#top-nav ul,  nav#footer-nav ul {
+  list-style: none;
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: justify;
+  justify-content: space-around;
+  }
+
+nav#footer-nav li, nav#top-nav li {
+  min-width: min-content;
+  display: block;
+  }
+
+nav#footer-nav a, nav#top-nav a  {
+  color: #fff;
+  border: none;
+  }
+
+nav#footer-nav a:hover, nav#top-nav a:hover {
+  text-decoration: none;
+  text-shadow: 0 0 1px #68a5d2, 2px 2px 4px #b1dcf2;
+  background: none;
+  }
+
+
+/*----------------------------------------------------
+   Other stuff
+-------------------------------------------------------*/
+
+article > ul {
+  list-style: disc;
+  margin: 0 0 1em 1.5em;
+}
+article > ol {
+  list-style: decimal;
+  margin: 0 0 1em 1.5em;
+}
+
+
+
+article {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+margin: 3em auto;
+width: 80%;
+max-width: 950px;
+}
+
+.content-block {
+background: #fff;
+opacity: 0.8;
+padding: 2em;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+
+.logo {
+ width: 15%;
+ margin: 1em 0 0 2em;
+}
+
+h1 {
+font-size: 1.5em; /* 24px/16px = 1.5em */
+line-height: 1.4em;
+font-weight: bold;
+margin: 0 0 1em 0;
+}
+
+
+.row {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+width: 80%;
+  margin: 2em auto 0;
+}
+
+.cell {
+margin: 0;
+text-align: center;
+}
+
+footer {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+background: #999;
+color: #fff;
+padding: 2em;
+}
+
+
+.copyright {
+display: block;
+text-align: center;
+}
+
+.item {
+  height: 400px;
+  }
+
+.carousel-image-one {
+  background: url('/assets/DAS10.jpg')  no-repeat center;
+  }
