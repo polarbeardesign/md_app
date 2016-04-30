@@ -1,52 +1,73 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-require 'rubygems'
-
-ruby '1.8.7'
-
-# to avoid railties conflict...
+gem 'rake', '10.1.1'
+gem 'multi_json', '1.8.4'
+gem 'activesupport', '3.1.3'
+gem 'builder', '3.0.4'
 gem 'i18n', '0.6.11'
-
-gem 'rake', '<= 10.4.2'
-gem 'rack-cache', '< 1.2'
+gem 'activemodel', '3.1.3'
+gem 'erubis', '2.7.0'
+gem 'rack', '1.3.10'
+gem 'rack-cache', '1.2'
+gem 'rack-mount', '0.8.3'
+gem 'rack-test', '0.6.2'
+gem 'hike', '1.2.3'
+gem 'tilt', '1.3.7'
+gem 'sprockets', '2.0.4'
+gem 'actionpack', '3.1.3'
+gem 'mime-types', '1.25.1'
+gem 'polyglot', '0.3.3'
+gem 'treetop', '1.4.15'
+gem 'mail', '2.3.3'
+gem 'actionmailer', '3.1.3'
+gem 'arel', '2.2.3'
+gem 'tzinfo', '0.3.38'
+gem 'activerecord', '3.1.3'
+gem 'activeresource', '3.1.3'
+gem 'acts_as_list', '0.2.0'
+gem 'bcrypt-ruby', '3.1.2'
+gem 'highline', '1.6.20'
 gem 'net-ssh', '2.7.0'
-gem 'rails', '3.1.3'
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
+gem 'net-scp', '1.1.2'
+gem 'net-sftp', '2.1.2'
+gem 'net-ssh-gateway', '1.2.0'
+gem 'capistrano', '2.15.4'
+gem 'coffee-script-source', '1.6.3'
+gem 'coffee-script', '2.2.0'
+gem 'rack-ssl', '1.3.3'
+gem 'json', '1.8.1'
+gem 'rdoc', '3.12.2'
+gem 'thor', '0.14.6'
+gem 'railties', '3.1.3'
+gem 'orm_adapter', '0.5.0'
+gem 'warden', '1.2.3'
+gem 'devise', '2.2.8'
+gem 'diffy', '3.0.7'
+gem 'exception_notification', '3.0.1'
+gem 'fastercsv', '1.5.5'
+gem 'jquery-rails', '3.0.4'
+gem 'jquery-ui-rails', '4.1.1'
 gem 'mysql2', '< 0.3.7'
-
-gem 'json'
+gem 'request_store', '1.1.0'
+gem 'paper_trail', '4.0.0.rc1'
+# gem 'bundler', '1.3.5'
+gem 'rails', '3.1.3'
+gem 'redcarpet', '2.3.0'
+gem 'sass', '3.2.13'
+gem 'will_paginate', '3.1.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.5'
-  gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'coffee-rails', '3.1.1'
+  gem 'sass-rails', '3.1.7'
+  gem 'uglifier', '2.4.0'
 end
 
 group :production do
-  gem 'execjs'
+  gem 'execjs', '2.0.2'
   gem 'libv8', '3.3.10.4'
   gem 'therubyracer', '0.10.2'
   gem 'rack-google_analytics', :require => "rack/google_analytics"
 end
-
-gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
- gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
 
