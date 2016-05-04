@@ -1,6 +1,22 @@
 MdApp::Application.routes.draw do
 
 
+  resources :events
+
+  resources :locations
+
+  resources :event_statuses
+
+  resources :event_types
+
+  resources :grants
+
+  resources :assignments
+
+  resources :rights
+
+  resources :roles
+
 #  devise_for :users, :skip => [:sessions]
 #  as :user do
 #    get 'signin' => 'devise/sessions#new', :as => :new_user_session
@@ -10,9 +26,14 @@ MdApp::Application.routes.draw do
 
 #	resources :users
 
-#  devise_scope :user do
-#    get "login", :to => "devise/#new"
-#  end
+devise_for :users, :skip => [:registrations]                                          
+    as :user do
+      get "login", :to => "devise/sessions#new"
+      get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
+      put 'users' => 'devise/registrations#update', :as => 'user_registration'            
+    end
+
+  resources :users
 
   resources :pages
 

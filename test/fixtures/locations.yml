@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  short_name: MyString
+  location_name: MyString
+  icao_identifier: MyString
+  description: MyText
+  city: MyString
+  state: MyString
+  latitude: MyString
+  longitude: MyString
+
+two:
+  short_name: MyString
+  location_name: MyString
+  icao_identifier: MyString
+  description: MyText
+  city: MyString
+  state: MyString
+  latitude: MyString
+  longitude: MyString

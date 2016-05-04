@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start: 2016-05-03 20:40:35
+  end: 2016-05-03 20:40:35
+  event_type: 
+  title: MyString
+  event_status: 
+  location: 
+  event_url: MyString
+  contact_info: MyString
+  details: MyText
+  entered_by: 1
+  graphic_address: MyString
+
+two:
+  start: 2016-05-03 20:40:35
+  end: 2016-05-03 20:40:35
+  event_type: 
+  title: MyString
+  event_status: 
+  location: 
+  event_url: MyString
+  contact_info: MyString
+  details: MyText
+  entered_by: 1
+  graphic_address: MyString

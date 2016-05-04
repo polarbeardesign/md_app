@@ -1,0 +1,8 @@
+<h1>New location</h1>
+
+<%= button_to "AirNavLookup", "http://www.airnav.com/airports", :method => "post", :form =>{:target => '_blank'} %>
+  Look up airport info<br /> identifier, lat, lan, etc.
+
+<%= render 'form' %>
+
+<%= link_to 'Back', locations_path %>

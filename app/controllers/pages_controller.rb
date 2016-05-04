@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+
+skip_before_filter :check_authorization, :check_authentication, :only => [:home, :show]
+
   # GET /pages
   # GET /pages.json
   def index

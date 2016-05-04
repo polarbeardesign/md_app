@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
 
-<article class="container-fluid">
 <h1>
   <%= @page.title %>
 </H1>
@@ -8,7 +6,11 @@
 <p>
   <%=  markdown @page.body %>
 </p>
-</article>
 
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<% if signed_in?%>
+  <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "admin" } %>
+    <%= link_to 'Edit', edit_page_path(@page)  %> |
+    <%= link_to 'Back', pages_path %>
+  <% end %>
+<% end %>
+

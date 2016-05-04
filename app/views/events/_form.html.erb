@@ -1,0 +1,78 @@
+  <script>
+  $(function() {
+    $( "#event_start" ).datetimepicker({
+     format:'Y-m-d H:i:00',
+     step:15
+    });
+
+    $( "#event_end" ).datetimepicker({
+     format:'Y-m-d H:i:00',
+     step:15
+    });
+  });
+  </script>
+
+
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= f.label :start %><br />
+      <%= f.text_field :start, :value => f.object.try(:start).try(:strftime,'%Y-%m-%d %H:%M:%S'), :size => 20 %>
+    </div>
+
+    <div class="field">
+      <%= f.label :end %><br />
+      <%= f.text_field :end, :value => f.object.try(:end).try(:strftime,'%Y-%m-%d %H:%M:%S'), :size => 20 %>
+    </div>
+
+  <div class="field">
+    <%= f.label :event_type %><br />
+    <%= f.collection_select :event_type_id, EventType.all, :id, :title, options = {:order => 'title ASC', :prompt => true}, html_options = {:class => "styled-select"} %>
+  </div>
+  <div class="field">
+    <%= f.label :title, 'Event Title' %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :event_status %><br />
+    <%= f.collection_select :event_status_id, EventStatus.all, :id, :status, options = {:order => 'status ASC', :prompt => true}, html_options = {:class => "styled-select"} %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+      <%= f.collection_select :location_id, Location.ordered.all, :id, :short_name, options = {:order => 'short_name ASC', :prompt => true}, html_options = {:class => "styled-select"} %><br />
+      <p><%= link_to 'Enter a new location', new_location_path %></p><br />
+  </div>
+  <div class="field">
+    <%= f.label :event_url, 'Event Website/URL' %><br />
+    <%= f.text_field :event_url %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_info %><br />
+    <%= f.text_field :contact_info %>
+  </div>
+  <div class="field">
+    <%= f.label :details %><br />
+    <%= f.text_area :details, :size => '30x5' %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :entered_by, :value => current_user.id %>
+  </div>
+  <div class="field">
+    <%= f.label :graphic_address %><br />
+    <%= f.text_field :graphic_address %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

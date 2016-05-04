@@ -12,33 +12,22 @@
     <%= render 'layouts/nav' %>
   </nav>
   <header>
-<div class="container-fluid">
-<div id="myCarousel" class="carousel slide" data-interval="false">
-  <!-- Indicators -->
 
-</div>
-  <div class="carousel-inner" role="listbox">
-    <div class="item carousel-image-one active">
-      &nbsp;
-    </div>
-</div>
   </header>
 
-
+<article class="container-fluid">
+<% if notice %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+<p class="alert"><%= alert %></p>
 
   <%= yield %>
-
+</article>
   <footer>
     <%= render 'layouts/footer' %>
   </footer>
 
 </div>
-
-<script>
-$(function(){
-  $('#myCarousel').carousel();
-});
-</script>
 
 </body>
 </html>

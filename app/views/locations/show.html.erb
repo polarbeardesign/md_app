@@ -1,0 +1,52 @@
+  <% map_url = "http://maps.googleapis.com/maps/api/staticmap?zoom=8&size=200x200&maptype=roadmap&markers=color:red%7Clabel:X%7C"+@location.latitude+","+@location.longitude+"&sensor=false" %>
+
+
+  <% if @location.latitude? %>
+    <div style="float: right; border: 1px solid #ccc; margin: 1em 0 1em 1em;">
+      <%= link_to image_tag(map_url), "http://maps.google.com/maps?q="+@location.latitude+",+"+@location.longitude, :target => "_blank" %>
+    </div>
+  <% end %>
+  
+<p>
+  <b>Short name:</b>
+  <%= @location.short_name %>
+</p>
+
+<p>
+  <b>Location name:</b>
+  <%= @location.location_name %>
+</p>
+
+<p>
+  <b>Icao identifier:</b>
+  <%= @location.icao_identifier %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @location.description %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @location.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @location.state %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @location.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @location.longitude %>
+</p>
+
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
