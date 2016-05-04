@@ -11,8 +11,8 @@
 
 <% @assignments.each do |assignment| %>
   <tr>
-    <td><%= assignment.user %></td>
-    <td><%= assignment.role_id %></td>
+    <td><%= assignment.user.email %></td>
+    <td><%= assignment.role.name %></td>
     <td><%= link_to 'Show', assignment %></td>
     <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
     <td><%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
