@@ -11,7 +11,8 @@
   <% end %>
 
 <% if @event.start.strftime("%b %d" ) == @event.end.strftime("%b %d") %>
-<div class="calendar-css" style="float: right;">
+<div class="row" style="width: 225px; margin:0;">
+<div class="calendar-css"  style="float: left;">
   <div class="calendar_year">
     <%= @event.start.strftime("%Y") %>
   </div>
@@ -24,6 +25,7 @@
   <div class="calendar_date">
     <%= @event.start.strftime("%d") %>
   </div>
+</div>
 </div>
 <% else %>
 <div class="row" style="width: 225px; margin:0;">
@@ -90,7 +92,7 @@
 <%= markdown @event.details %>
 
 <% if signed_in?%>
-  <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "admin" } %>
+  <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
     <%= link_to 'Edit', edit_event_path(@event) %> |
     <%= link_to 'Back', events_path %>
   <% end %>

@@ -45,4 +45,8 @@
    </div>
 <% end %>
 
-<%= link_to 'New Event', new_event_path %>
+<% if signed_in?%>
+  <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
+    <%= link_to 'New Event', new_event_path %>
+  <% end %>
+<% end %>
