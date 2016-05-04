@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+skip_before_filter :check_authorization, :check_authentication, :only => [:index, :show]
+
   # GET /events
   # GET /events.json
   def index
