@@ -15,7 +15,7 @@
 
 <% @members.each do |member| %>
   <tr class="<%= cycle('odd_row', 'even_row') %>">
-    <td><%= member.last_name+", "+member.first_name %></td>
+    <td><%= link_to member.last_name+", "+member.first_name, edit_member_path(member) %></td>
     <% if member.city? %>
       <td><%= member.city+", "+member.state %></td>
     <% else %>
