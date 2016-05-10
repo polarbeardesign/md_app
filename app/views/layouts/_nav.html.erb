@@ -1,23 +1,37 @@
-
-<ul>
-<li><%= link_to 'CAF Marshalling Detachment', home_path %></li>
-<li><%= link_to 'About', page_path(4) %>
-<!--  <ul>
-    <li><a href="#">History</a></li>
-    <li><a href="#">Detachment Officers</a></li>
-    <li><a href="#">Cadet Corner</a></li>
-    <li><a href="#">In Memoriam</a></li>
-    <li><a href="#">Contact Us</a></li>
-  </ul>--></li>
-<li><%= link_to 'Ramp Safety', page_path(3) %></li>
-<li><%= link_to 'News and Events', events_path %></li>
-<li><a href="#">Galleries</a></li>
-<li><a href="#">Contact Us</a></li>
-<li><%= link_to 'Members', login_path %>
-    <% if user_signed_in? %>
-      <ul>
-        <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
-      </ul>
-    <% end %>
-</li>
-</ul>
+  <div class="container-fluid">
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    
+     <div class="collapse navbar-collapse" id="bs-example-navbar">
+      <ul class="nav navbar-nav">
+				<li><%= link_to 'CAF Marshalling Detachment', home_path %></li>
+				<li><%= link_to 'About', page_path(4) %>
+				<!--  <ul>
+						<li><a href="#">History</a></li>
+						<li><a href="#">Detachment Officers</a></li>
+						<li><a href="#">Cadet Corner</a></li>
+						<li><a href="#">In Memoriam</a></li>
+						<li><a href="#">Contact Us</a></li>
+					</ul>--></li>
+				<li><%= link_to 'Ramp Safety', page_path(3) %></li>
+				<li><%= link_to 'News and Events', events_path %></li>
+				<li><a href="#">Galleries</a></li>
+				<li><a href="#">Contact Us</a></li>
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Members <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+            <% if user_signed_in? %>
+            <li><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+            <li><%= link_to "Log In", login_path %></li>
+            <% end %>
+				</li>
+			</ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->

@@ -8,39 +8,35 @@
   <%= csrf_meta_tags %>
 <body>
 <div class="container-fluid">
-  <nav id="top-nav">
-    <%= render 'layouts/nav' %>
-  </nav>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<%= render 'layouts/nav' %>
+	</nav>
   <header>
-<div class="container-fluid">
-<div id="myCarousel" class="carousel slide" data-interval="false">
-  <!-- Indicators -->
-
-</div>
-  <div class="carousel-inner" role="listbox">
-    <div class="item carousel-image-one active">
-      &nbsp;
-    </div>
-</div>
+		<div class="container-fluid">
+			<div id="myCarousel" class="carousel slide" data-interval="false">
+			<!-- Indicators -->
+			</div>
+			<div class="carousel-inner" role="listbox">
+				<div class="item carousel-image-one active">
+				&nbsp;
+				</div>
+			</div>
   </header>
 
 
 
-<article class="container-fluid">
-<% if notice %>
-  <p class="notice"><%= notice %></p>
-<% end %>
-<p class="alert"><%= alert %></p>
+	<article class="container-fluid">
+		<% if notice %>
+			<p class="notice"><%= notice %></p>
+		<% end %>
+		<p class="alert"><%= alert %></p>
+		<%= yield %>
+	</article>
 
-  <%= yield %>
-</article>
-
-  <footer>
-    <%= render 'layouts/footer' %>
-  </footer>
-
+	<footer class="footer">
+		<%= render 'layouts/footer' %>
+	</footer>
 </div>
-
 <script>
 $(function(){
   $('#myCarousel').carousel();

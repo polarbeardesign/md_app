@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 <body>
 <div class="container-fluid">
-  <nav id="top-nav">
+<nav class="navbar navbar-default navbar-fixed-top">
     <%= render 'layouts/nav' %>
   </nav>
   <header>
@@ -23,7 +23,7 @@
 
   <%= yield %>
 </article>
-  <footer>
+  <footer class="footer">
     <%= render 'layouts/footer' %>
   </footer>
 

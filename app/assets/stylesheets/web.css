@@ -1,7 +1,3 @@
-
-@import "bootstrap";
-/*@import "bootstrap-sprockets";*/
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -113,7 +109,7 @@ font-weight: bold;
 /*----------------------------------------------------
    Navigation
 -------------------------------------------------------*/
-
+/*
 nav ul {
   margin-top: 0px;
   list-style: none;
@@ -136,24 +132,39 @@ nav a, nav a:visited {
   text-decoration: none;
   }
 
-nav li { /* all list items */
-  margin: -1px 10px 0; /*margin between top nav boxes - my code*/
+nav li { /* all list items | end comment |
+  margin: -1px 10px 0; /*margin between top nav boxes - my code| end comment |
   padding: 0.5em;
  }
-nav a:hover, nav a.sfhover {/* hover styles - my code */
+nav a:hover, nav a.sfhover {/* hover styles - my code | end comment |
   text-decoration: none;
   background: #0574ab;
   color: #fff;
   }
+*/
 
-nav#top-nav ul {
-  width: 100%;
+.navbar-default {
   background: #f54929;
   font-family: "Myriad Pro", sans-serif;
   font-weight: bold;
-  color: #fff;
   }
 
+.navbar-default .navbar-nav>li>a {
+color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 0 1px #68a5d2, 2px 2px 4px #b1dcf2;
+  background: none;
+  }
+
+.navbar-default .navbar-toggle .icon-bar {
+background: #fff;
+}
+
+/*
 nav#footer-nav {
 display: inline;
   }
@@ -184,44 +195,7 @@ nav#footer-nav a:hover, nav#top-nav a:hover {
   background: none;
   }
 
-/* SECOND LEVEL CODE */
-
-nav ul li ul { /* second-level lists */
-  position: absolute;
-  top: 30px; /*positions the drop down box vertically relative to its container, so padding + button height to get to align at bottom - my code*/
-  padding-top: 10px; /*moves nav boxes down but preserves the block element so the hover is not lost*/
-  margin-left: -5px; /*offset margin between top nav boxes and second level boxes - my code*/
-  width: 130px; /* sets second/third level box width - my code */
-  left: -999em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
-  text-align: left;  /*left justifies the text in the boxes - my code  */
-  display: inline-block;
-  background: #fff;
-}
-
-nav ul li ul li { /* format second level boxes */
-	margin-left: 0px;
-	width: 130px;
-	margin-top: -1px;
-	padding-bottom: 10px;
-	padding-left: 4px; /* pads text within boxes */
-/*	background: #b78d03 url("/assets/nav_button_1_black_0.gif") no-repeat top center; /*hover styles - my code */
-	border-left: 1px solid #666;
-	border-right: 1px solid #666;
-	border-bottom: 1px solid #666;
-}
-
-
-nav ul li:hover ul, nav ul li ul li:hover ul, nav ul li.sfhover ul, nav ul li li.sfhover ul { /* lists nested under hovered list items */
-	left: auto;
-}
-nav ul li:hover, nav ul li.sfhover {/* hover styles - my code */
-
-}
-
-#nav li ul li:hover, #nav li ul li.sfhover {/* hover styles - my code */
-
-}
-
+*/
 
 
 /*----------------------------------------------------
@@ -377,6 +351,12 @@ padding: 2em;
  margin: 1em 0 0 2em;
 }
 
+.caf_logo_hp {
+float:right;
+margin: 0 0 1em 1em;
+width: 35%;
+}
+
 h1 {
 font-size: 1.5em; /* 24px/16px = 1.5em */
 line-height: 1.4em;
@@ -435,16 +415,12 @@ width: 80%;
 margin: 0;
 }
 
-footer {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+.footer {
 background: #999;
 color: #fff;
 padding: 2em;
+width: 100%;
+height: 175px;
 }
 
 .text-center {
@@ -465,3 +441,25 @@ text-align: center;
 .carousel-image-one {
   background: url('/assets/DAS10.jpg')  no-repeat center;
   }
+  
+@media (min-width: 768px) {
+
+.navbar {
+min-height: 35px;
+margin-bottom: 0;
+}
+
+.navbar-default {
+border: none;
+border-radius: 0px;
+}
+
+.navbar-nav>li>a {
+  padding: 0.5em;
+}
+
+.container-fluid {
+padding: 0;
+}
+
+}
