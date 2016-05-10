@@ -1,3 +1,9 @@
+<% if signed_in?%>
+  <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
+  <%= button_to 'New Event', new_event_path, {:method => 'get', :class => "crud-nav"} %>
+  <% end %>
+<% end %>
+
 <h1>Calendar:</h1>
 
 <% if !@events.blank? %>
@@ -43,10 +49,4 @@
      <div class="cell" style="width: 25%;">&nbsp;</div>
        No scheduled events at this time.
    </div>
-<% end %>
-
-<% if signed_in?%>
-  <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
-    <%= link_to 'New Event', new_event_path %>
-  <% end %>
 <% end %>

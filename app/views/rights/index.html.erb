@@ -1,4 +1,8 @@
-<h1>Listing rights</h1>
+<%= button_to 'New Right', new_right_path, {:method => 'get', :class => "new-button"} %>
+
+<h1>Model/Resource Rights</h1>
+
+<p>Rights are operations on models (or resources). Rights can be <%= link_to 'granted', grants_path %> to <%= link_to 'Roles', roles_path %>.</p>
 
 <table>
   <tr>
@@ -20,6 +24,4 @@
 <% end %>
 </table>
 
-<br />
 
-<%= link_to 'New Right', new_right_path %>

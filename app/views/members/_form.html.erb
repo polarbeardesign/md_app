@@ -1,0 +1,149 @@
+<%= render "scripts" %>
+
+
+
+
+<%= form_for(@member) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h3>Login Info</h3>
+<div class="row">
+  <%= f.fields_for :user do |builder| %>
+        <%= render "user_fields", :f => builder %> 
+  <% end %>
+</div>
+
+<div class="clearer"></div>
+
+<% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
+  <h3>Website Role(s)</h3>
+  <div class="row">
+    <%= f.fields_for :roles do |builder| %>
+      <%= render "roles", :f => builder %>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="clearer"></div>
+<h3>Contact Info</h3>
+<div class="row">
+  <div class="cell field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, :size => '20' %>
+  </div>
+  <div class="cell field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, :size => '20' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="cell field">
+    <%= f.label :street_1 %><br />
+    <%= f.text_field :street_1, :size => '20' %>
+  </div>
+  <div class="cell field">  
+    <%= f.label :street_2 %><br />
+    <%= f.text_field :street_2, :size => '20' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="cell field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city, :size => '20' %>
+  </div>
+  <div class="cell field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state, :size => '5' %>
+  </div>
+  <div class="cell field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip, :size => '10' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="cell field">
+    <%= f.label :home_phone %><br />
+    <%= f.text_field :home_phone, :size => '13' %>
+  </div>
+  <div class="cell field">
+    <%= f.label :work_phone %><br />
+    <%= f.text_field :work_phone, :size => '13' %>
+  </div>
+  <div class="cell field">
+    <%= f.label :cell_phone %><br />
+    <%= f.text_field :cell_phone, :size => '13' %>
+  </div>
+</div>
+
+<div class="clearer"></div>
+
+<h3>Emergency Info</h3>
+<div class="row">
+  <div class="cell field">
+    <%= f.label :ec_name, "Contact Name" %><br />
+    <%= f.text_field :ec_name, :size => '30' %>
+  </div>
+  <div class="cell field">
+    <%= f.label :ec_phone, "Phone" %><br />
+    <%= f.text_field :ec_phone, :size => '15' %>
+  </div>
+</div>
+  
+<div class="clearer"></div>
+
+<div class="clearer"></div>
+
+<h3>CAF Info</h3>
+<div class="row">
+  <div class="cell field">
+    <%= f.label :caf_col_no, "CAF Col #" %><br />
+    <%= f.text_field :caf_col_no, :size => '8' %>
+  </div>
+  <div class="cell field">
+    <%= f.label :caf_join_date, "CAF Join Date" %><br />
+    <%= f.text_field :caf_join_date, :size => '10' %>
+  </div>
+  <div class="cell field" style="text-align: center;">
+    <%= f.label :active, "Active" %><br />
+    <%= f.check_box :active %>
+  </div>
+</div>
+  
+<div class="clearer"></div>
+
+<h3>Dues Info</h3>
+<div class="indent_row">
+      <table class="table_border">
+  <tr>
+    <th>Date Paid</th>
+    <th>Payment method</th>
+    <th>Payment type</th>
+    <th>Amt paid</th>
+    <th>Notes</th>
+  </tr>
+  <%= f.fields_for :dues_payments do |builder| %>
+        <%#= render "dues_paid", :f => builder %> 
+  <% end %>
+</table>
+[<%#= link_to 'New Dues payment', new_dues_payment_path(:member => @member.id) %>]
+</div>
+<div class="clearer"></div>
+<hr />
+
+  <div class="actions" style="text-align: center;">
+    <%= f.submit :data => { :disable_with => "Submitting..." } %>
+  </div>
+<% end %>

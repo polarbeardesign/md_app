@@ -97,12 +97,17 @@ background: #29D5F5;
    Basic Styles
 -------------------------------------------------------*/
 
-h1, h2 {
+h1, h2, h3 {
 margin-bottom: 1.4em;
 }
 
 h2 {
 font-size: 1.2em;
+font-weight: bold;
+}
+
+h3 {
+font-size: 1.1em;
 font-weight: bold;
 }
 
@@ -201,6 +206,9 @@ nav#footer-nav a:hover, nav#top-nav a:hover {
 /*----------------------------------------------------
    Other stuff
 -------------------------------------------------------*/
+.crud-nav {
+float: right;
+}
 
 .calendar-ii {
   float: left;

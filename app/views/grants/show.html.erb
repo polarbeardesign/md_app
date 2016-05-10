@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Right:</b>
-  <%= @grant.right %>
+  <%= @grant.right.resource + ": " + @grant.right.operation %>
 </p>
 
 <p>
   <b>Role:</b>
-  <%= @grant.role %>
+  <%= @grant.role.name %>
 </p>
 
 

@@ -1,0 +1,13 @@
+  <div class="cell">
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email, :size => '20'  %>
+  </div>
+  </div>
+  <div class="cell">
+  <div class="field">
+    <% if current_page?(new_member_path) %>
+      <%= f.hidden_field :password, :value => 'welcome_1'  %>
+    <% end %>
+  </div>
+  </div>

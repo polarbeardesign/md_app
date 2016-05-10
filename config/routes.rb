@@ -1,6 +1,8 @@
 MdApp::Application.routes.draw do
 
 
+  resources :members
+
   resources :events
 
   resources :locations

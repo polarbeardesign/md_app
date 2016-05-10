@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160504014035) do
+ActiveRecord::Schema.define(:version => 20160510202653) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -77,6 +77,29 @@ ActiveRecord::Schema.define(:version => 20160504014035) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "members", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "caf_col_no"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street_1"
+    t.string   "street_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "home_phone"
+    t.string   "work_phone"
+    t.string   "cell_phone"
+    t.boolean  "active"
+    t.date     "caf_join_date"
+    t.string   "ec_name"
+    t.string   "ec_phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "members", ["user_id"], :name => "index_members_on_user_id"
 
   create_table "pages", :force => true do |t|
     t.string   "title"
