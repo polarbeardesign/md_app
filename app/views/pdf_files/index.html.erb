@@ -1,4 +1,6 @@
-<h1>Listing pdf_files</h1>
+<%= button_to 'New PDF File', new_pdf_file_path, {:method => 'get', :class => "new-button"} %>
+
+<h1>Listing PDF Files</h1>
 
 <table>
   <tr>
@@ -19,7 +21,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Pdf file', new_pdf_file_path %>

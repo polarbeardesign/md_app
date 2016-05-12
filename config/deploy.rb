@@ -33,7 +33,7 @@ role :db,  domain, :primary => true # This is where Rails migrations will run
 
 before "deploy:assets:precompile", "deploy:symlink_db_file"
 
-after "deploy:restart", "deploy:cleanup", "deploy:symlink_env_file", "deploy:symlink_htaccess_file", "deploy:precompile_other"
+after "deploy:restart", "deploy:cleanup", "deploy:symlink_env_file", "deploy:symlink_uploads", "deploy:symlink_htaccess_file", "deploy:precompile_other"
 
 namespace :deploy do
 
@@ -69,5 +69,10 @@ namespace :deploy do
   task :precompile_other do
     run "cd /home/#{user}/#{application}/current && bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile"
   end
+
+   desc "symlink the public uploads folder"
+   task :symlink_uploads do
+     run "ln -nfs #{shared_path}/uploads  #{release_path}/public/uploads"
+   end
 
 end
