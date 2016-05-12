@@ -55,6 +55,8 @@ gem 'rails', '3.1.3'
 gem 'redcarpet', '2.3.0'
 gem 'sass', '3.2.13'
 gem 'will_paginate', '3.1.0'
+gem 'rmagick', '~> 2.15', '>= 2.15.4'
+gem 'carrierwave', '<= 0.10.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,6 +1,8 @@
 MdApp::Application.routes.draw do
 
 
+  resources :pdf_files
+
   resources :members
 
   resources :events
