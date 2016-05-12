@@ -2,7 +2,7 @@
 
 <p>
   <b>Title:</b>
-  <%= @pdf_file.title %>
+  <%= link_to @pdf_file.title, @pdf_file.filename.to_s %>
 </p>
 
 <p>
