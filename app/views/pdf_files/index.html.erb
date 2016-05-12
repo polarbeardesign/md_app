@@ -13,7 +13,7 @@
 
 <% @pdf_files.each do |pdf_file| %>
   <tr>
-    <td><%= pdf_file.title %></td>
+    <td><%= link_to pdf_file.title, pdf_file.filename.to_s %></td>
     <td><%= pdf_file.filename %></td>
     <td><%= link_to 'Show', pdf_file %></td>
     <td><%= link_to 'Edit', edit_pdf_file_path(pdf_file) %></td>
