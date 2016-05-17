@@ -47,6 +47,9 @@ table {
 	border-spacing: 0;
 }
 
+/*----------------------------------------------------
+   Basic Styles
+-------------------------------------------------------*/
 
 body {
 	margin: 0;
@@ -54,7 +57,7 @@ body {
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 16px;
-  line-height: 18px;
+  line-height: 1.4em;
 }
 
 p, td {
@@ -93,10 +96,6 @@ color: #fff;
 background: #29D5F5;
 }
 
-/*----------------------------------------------------
-   Basic Styles
--------------------------------------------------------*/
-
 h1, h2, h3 {
 margin-bottom: 1.4em;
 }
@@ -114,39 +113,6 @@ font-weight: bold;
 /*----------------------------------------------------
    Navigation
 -------------------------------------------------------*/
-/*
-nav ul {
-  margin-top: 0px;
-  list-style: none;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  }
-
-nav a, nav a:visited {
-  display: block;
-  cursor: pointer;
-  border: 1px solid #88ddf7;
-  color: #fff;
-  text-decoration: none;
-  }
-
-nav li { /* all list items | end comment |
-  margin: -1px 10px 0; /*margin between top nav boxes - my code| end comment |
-  padding: 0.5em;
- }
-nav a:hover, nav a.sfhover {/* hover styles - my code | end comment |
-  text-decoration: none;
-  background: #0574ab;
-  color: #fff;
-  }
-*/
 
 .navbar-default {
   background: #f54929;
@@ -168,40 +134,6 @@ color: #fff;
 .navbar-default .navbar-toggle .icon-bar {
 background: #fff;
 }
-
-/*
-nav#footer-nav {
-display: inline;
-  }
-
-nav#top-nav ul,  nav#footer-nav ul {
-  list-style: none;
-  -webkit-flex-flow: row;
-  -ms-flex-flow: row;
-  flex-flow: row;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: justify;
-  justify-content: space-around;
-  }
-
-nav#footer-nav li, nav#top-nav li {
-  min-width: min-content;
-  display: block;
-  }
-
-nav#footer-nav a, nav#top-nav a  {
-  color: #fff;
-  border: none;
-  }
-
-nav#footer-nav a:hover, nav#top-nav a:hover {
-  text-decoration: none;
-  text-shadow: 0 0 1px #68a5d2, 2px 2px 4px #b1dcf2;
-  background: none;
-  }
-
-*/
-
 
 /*----------------------------------------------------
    Other stuff
@@ -407,18 +339,6 @@ cursor: pointer;
   padding: 0.1em 0.5em;
    }
 
-/*.row {
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: space-between;
-  justify-content: space-between;
-width: 80%;
-  margin: 2em auto 0;
-}*/
-
 .cell {
 margin: 0 1em 0 0;
 float: left;
@@ -448,9 +368,21 @@ text-align: center;
   }
 
 .carousel-image-one {
-  background: url('/assets/DAS10.jpg')  no-repeat center;
+  background: url('/assets/carousel_1.jpg')  no-repeat center;
   }
-  
+ 
+.carousel-image-two {
+  background: url('/assets/carousel_2.jpg')  no-repeat center;
+  }
+ 
+.carousel-image-three {
+  background: url('/assets/carousel_3.jpg')  no-repeat center;
+  }
+
+.carousel-image-four {
+  background: url('/assets/carousel_4.jpg')  no-repeat center;
+  }
+   
 @media (min-width: 768px) {
 
 .navbar {
