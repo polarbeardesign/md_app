@@ -1,27 +1,28 @@
-<p>
-  <b>Gallery category:</b>
-  <%= @gallery.gallery_category.category_name %>
-</p>
+<h1><%= @gallery.gallery_name %></h1>
 
-<p>
-  <b>Media type:</b>
-  <%= @gallery.media_type.name %>
-</p>
+<% if @gallery.description? %>
+	<p><%= @gallery.description %></p>
+<% end %>
 
-<p>
-  <b>Gallery name:</b>
-  <%= @gallery.gallery_name %>
-</p>
+<% @gallery.photos.each_with_index do |photo, i| %>
+<% if i == 0 || i % 3 == 0 %>
+  <div class="form_row">
+<% end %>
 
-<p>
-  <b>Description:</b>
-  <%= @gallery.description %>
-</p>
 
-<p>
-  <b>Gallery pic:</b>
-  <%= @gallery.gallery_pic %>
-</p>
+  <div class="photo_cell">
+    <%= link_to (image_tag photo.image.url(:thumb).to_s ), photo_path(photo) %><br />
+    <%= photo.description %>
+  </div>
+
+<% if i > 0 && i == 2 || i == 5 || i == 8 || i == 11 || i == 14 || i == 17 || i == 20 || i == 23 || i == 26 || i == 29 || i == 32 || i == 35 || i == 38 || i == 41 || i == 44 || i == 47 %>
+  <!-- close form_row div -->
+  </div>
+<% elsif i+1 >= @gallery.photos.size %>
+  </div>
+<% end %>
+
+<% end %>
 
 
 <% if signed_in?%>

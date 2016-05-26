@@ -71,17 +71,6 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
-
 table {
 
 }
@@ -382,7 +371,19 @@ text-align: center;
 .carousel-image-four {
   background: url('/assets/carousel_4.jpg')  no-repeat center;
   }
-   
+
+.photo_cell {
+  display: inline-block;
+  text-align: center;
+  padding: 0.25em;
+  margin: 0.25em;
+  border: 1px solid #ddd;
+}
+
+.photo_cell img {
+  border: 1px solid #000;
+}
+
 @media (min-width: 768px) {
 
 .navbar {
