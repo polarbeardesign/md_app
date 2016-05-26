@@ -2,7 +2,7 @@ class GrantsController < ApplicationController
   # GET /grants
   # GET /grants.json
   def index
-    @grants = Grant.all
+    @grants = Grant.right_ordered.all
 
     respond_to do |format|
       format.html # index.html.erb

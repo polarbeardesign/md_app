@@ -1,0 +1,16 @@
+<p>
+  <b>Category Name:</b>
+  <%= @gallery_category.category_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @gallery_category.description %>
+</p>
+
+<% if signed_in?%>
+  <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
+    <%= link_to 'Edit', edit_gallery_category_path(@gallery_category) %> |
+    <%= link_to 'Back', gallery_categories_path %>
+  <% end %>
+<% end %>

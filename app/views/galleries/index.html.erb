@@ -1,0 +1,34 @@
+<% if signed_in?%>
+  <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
+  <%= button_to 'New Gallery', new_gallery_path, {:method => 'get', :class => "new-button"} %>
+  <% end %>
+<% end %>
+
+<h1>Galleries</h1>
+
+<table>
+  <tr>
+    <th>Gallery category</th>
+    <th>Media type</th>
+    <th>Gallery name</th>
+    <th>Description</th>
+    <th>Gallery pic</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @galleries.each do |gallery| %>
+  <tr>
+    <td><%= gallery.gallery_category %></td>
+    <td><%= gallery.media_type %></td>
+    <td><%= gallery.gallery_name %></td>
+    <td><%= gallery.description %></td>
+    <td><%= gallery.gallery_pic %></td>
+    <td><%= link_to 'Show', gallery %></td>
+    <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
+    <td><%= link_to 'Destroy', gallery, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+

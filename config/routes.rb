@@ -1,6 +1,14 @@
 MdApp::Application.routes.draw do
 
 
+  resources :photos
+
+  resources :galleries
+
+  resources :gallery_categories
+
+  resources :media_types
+
   resources :pdf_files
 
   resources :members
@@ -42,6 +50,7 @@ devise_for :users, :skip => [:registrations]
   resources :pages
 
    match 'home' => 'pages#home', :as => :home, :via => :get
+   match 'admin' => 'pages#admin', :as => :admin, :via => :get
 
   root :to => 'pages#home'
   

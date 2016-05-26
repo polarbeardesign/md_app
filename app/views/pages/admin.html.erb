@@ -1,0 +1,35 @@
+<h1>Admin Section</h1>
+
+<% if current_user.roles.any? {|role| role.name == "Admin" } %>
+<h2>People</h2>
+<div class="row padded">
+  <div class="cell" style="width: 30%;">
+    <%= button_to "Member Admin", members_path, :method => :get %>
+    Edit/Admin Members
+  </div>
+
+</div>
+
+<% end %>
+
+<% if current_user.roles.any? {|role| role.name == "SuperUser" } %>
+<hr />
+<div class="row padded">
+  <div class="cell" style="width: 22%;">
+    <%= button_to "Rights", rights_path, :method => :get %>
+    Create model/<br />operation rights
+  </div>
+  <div class="cell" style="width: 22%;">
+    <%= button_to "Grants", grants_path, :method => :get %>
+    Grant rights<br />to roles
+  </div>
+  <div class="cell" style="width: 22%;">
+    <%= button_to "Roles", roles_path, :method => :get %>
+    Website roles
+  </div>
+  <div class="cell" style="width: 22%;">
+    <%= button_to "Users", users_path, :method => :get %>
+    see members website<br />permissions and<br />last login
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Gallery:</b>
+  <%= @photo.gallery.gallery_name %>
+</p>
+
+<p>
+  <b>Credit:</b>
+  <%= @photo.credit %>
+</p>
+
+<p>
+  <b>Photo title:</b>
+  <%= @photo.photo_title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @photo.description %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= image_tag @photo.image.url(:thumb).to_s %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @photo.position %>
+</p>
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>

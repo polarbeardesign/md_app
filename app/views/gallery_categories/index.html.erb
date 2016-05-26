@@ -1,0 +1,24 @@
+<%= button_to 'New Gallery Category', new_gallery_category_path, {:method => 'get', :class => "new-button"} %>
+
+<h1>Gallery Categories</h1>
+
+<table>
+  <tr>
+    <th>Category Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gallery_categories.each do |gallery_category| %>
+  <tr>
+    <td><%= gallery_category.category_name %></td>
+    <td><%= gallery_category.description %></td>
+    <td><%= link_to 'Show', gallery_category %></td>
+    <td><%= link_to 'Edit', edit_gallery_category_path(gallery_category) %></td>
+    <td><%= link_to 'Destroy', gallery_category, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+

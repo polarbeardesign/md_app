@@ -90,4 +90,8 @@ skip_before_filter :check_authorization, :check_authentication, :only => [:home,
     render "pages/show", :layout => "home"
   end
 
+  def admin
+   @user = current_user
+  end
+
 end
