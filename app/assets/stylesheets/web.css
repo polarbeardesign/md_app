@@ -380,8 +380,22 @@ text-align: center;
   border: 1px solid #ddd;
 }
 
+.photo-viewer > img {
+  border: 1px solid #000;
+}
+
 .photo_cell img {
   border: 1px solid #000;
+}
+
+.photo_title {
+  text-align: center;
+}
+
+.photo_credit {
+  text-align: right;
+  font-size: 0.75em;
+  font-style: italic;
 }
 
 @media (min-width: 768px) {
