@@ -31,6 +31,9 @@
             <% else %>
             <li><%= link_to "Log In", login_path %></li>
             <% end %>
+          <% if current_user.roles.any? {|role| role.name == "Admin"  or role.name == "SuperUser" } %>
+            <li><%= link_to "Admin", admin_path %></li>
+          <% end %>
 				</li>
 			</ul>
     </div><!-- /.navbar-collapse -->

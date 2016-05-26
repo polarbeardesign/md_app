@@ -296,8 +296,8 @@ margin: 0 0 1em 0;
 input, textarea {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.25em;
-  background: #eff9ff;
-  border: 1px solid #68a5d2;
+  background: #ffe2e2; /* eff9ff; */
+  border: 1px solid #d29b6d; /* 68a5d2; */
   box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
   -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
   -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
