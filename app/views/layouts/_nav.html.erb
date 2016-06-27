@@ -10,31 +10,33 @@
     
      <div class="collapse navbar-collapse" id="bs-example-navbar">
       <ul class="nav navbar-nav">
-				<li><%= link_to 'CAF Marshalling Detachment', home_path %></li>
-				<li><%= link_to 'About', page_path(4) %>
-				<!--  <ul>
-						<li><a href="#">History</a></li>
-						<li><a href="#">Detachment Officers</a></li>
-						<li><a href="#">Cadet Corner</a></li>
-						<li><a href="#">In Memoriam</a></li>
-						<li><a href="#">Contact Us</a></li>
-					</ul>--></li>
-				<li><%= link_to 'Ramp Safety', page_path(3) %></li>
-				<li><%= link_to 'News and Events', events_path %></li>
-				<li><%= link_to 'Galleries', galleries_path %></li>
-				<li><a href="#">Contact Us</a></li>
-				<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Members <span class="caret"></span></a>
-				<ul class="dropdown-menu">
+        <li><%= link_to 'CAF Marshalling Detachment', home_path %></li>
+        <li><%= link_to 'About', page_path(4) %>
+        <!--  <ul>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Detachment Officers</a></li>
+            <li><a href="#">Cadet Corner</a></li>
+            <li><a href="#">In Memoriam</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>--></li>
+        <li><%= link_to 'Ramp Safety', page_path(3) %></li>
+        <li><%= link_to 'News and Events', events_path %></li>
+        <li><%= link_to 'Galleries', galleries_path %></li>
+        <li><a href="#">Contact Us</a></li>
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Members <span class="caret"></span></a>
+        <ul class="dropdown-menu">
             <% if user_signed_in? %>
             <li><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></li>
             <% else %>
             <li><%= link_to "Log In", login_path %></li>
             <% end %>
+           <% if user_signed_in? %>
           <% if current_user.roles.any? {|role| role.name == "Admin"  or role.name == "SuperUser" } %>
             <li><%= link_to "Admin", admin_path %></li>
           <% end %>
-				</li>
-			</ul>
+          <% end %>
+        </li>
+      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
