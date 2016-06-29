@@ -28,6 +28,7 @@
 <% if signed_in?%>
   <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
     <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+    <%= link_to 'Add Photo', new_photo_path %> |
   <% end %>
 <% end %>
 <%= link_to 'Back', galleries_path %>
