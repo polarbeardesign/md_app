@@ -1,4 +1,7 @@
 class PhotosController < ApplicationController
+
+skip_before_filter :check_authorization, :check_authentication, :only => [:index, :show]
+
   # GET /photos
   # GET /photos.json
   def index
