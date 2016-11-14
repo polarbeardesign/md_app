@@ -3,6 +3,13 @@
    License: none (public domain)
 */
 
+/* Site Colors 
+  orange => #f54929;
+  blue   => #29d5f5;
+  lt blue=> #e1f4f7;
+  grey   => #999999;
+*/
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -296,8 +303,8 @@ margin: 0 0 1em 0;
 input, textarea {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.25em;
-  background: #ffe2e2; /* eff9ff; */
-  border: 1px solid #d29b6d; /* 68a5d2; */
+  background: #e1f4f7; /* eff9ff; */
+  border: 1px solid #29d5f5; /* 68a5d2; */
   box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
   -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
   -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
