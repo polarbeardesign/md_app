@@ -1,23 +1,25 @@
 <h1>Log in</h1>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div style="width: 360px; margin: 0 auto;">
-  <%= f.label :email %></span><br />
-  <%= f.email_field :email, :autofocus => true %>
+  <div style="width: 360px; margin: 1em auto;">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, :autofocus => true %>
   </div>
 
   <div style="width: 360px; margin: 0 auto;">
-  <%= f.label :password %></span><br />
-  <%= f.password_field :password %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-  <div style="width: 360px; margin: 2em auto 0;">
-    <%= f.check_box :remember_me %> <%= f.label :remember_me %></span>
+    <div style="width: 360px; margin: 1em auto;">
+      <%= f.check_box :remember_me %> <%= f.label :remember_me %>
     </div>
   <% end -%>
-</div>
-  <div><%= f.submit "Log in" %></div>
+
+    <div style="width: 360px; margin: 0 auto 1em;">
+      <%= f.submit "Log in" %>
+    </div>
 <% end %>
 
 <div class="row"><span style="margin-left: 40%; margin-bottom: 2em;"><%= render "devise/shared/links" %></span></div>
