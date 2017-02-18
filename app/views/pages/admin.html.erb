@@ -9,28 +9,11 @@
   </div>
 
 </div>
-<h2>Events &amp; Trips</h2>
-<div class="row padded">
-  <div class="cell" style="width: 30%;">
-    <%= button_to "Events", events_path, :method => :get %>
-    Edit/Admin Upcoming Events
-  </div>
-  <div class="cell" style="width: 30%;">
-    <%= button_to "Locations", locations_path, :method => :get %>
-    Edit/Admin Locations to tie to Events
-  </div>
-</div>
+
 <% end %>
-<h2>Website Stuff</h2>
-<div class="row padded">
-  <div class="cell" style="width: 30%;">
-    <%= button_to "Pages", pages_path, :method => :get %>
-    Edit/Admin Page Content
-  </div>
-</div>
+
 <% if current_user.roles.any? {|role| role.name == "SuperUser" } %>
 <hr />
-<h2>Super User Stuff</h2>
 <div class="row padded">
   <div class="cell" style="width: 22%;">
     <%= button_to "Rights", rights_path, :method => :get %>
