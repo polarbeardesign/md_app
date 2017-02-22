@@ -42,8 +42,15 @@ devise_for :users, :skip => [:registrations]
 
   resources :pages
 
-   match 'home' => 'pages#home', :as => :home, :via => :get
-   match 'admin' => 'pages#admin', :as => :admin, :via => :get
+  match 'membership' => 'pages#show', :id => 2, :as => :membership
+  match 'ramp_safety' => 'pages#show', :id => 3, :as => :ramp_safety
+  match 'about_us' => 'pages#show', :id => 4, :as => :about_us
+  match 'admin' => 'pages#show', :id => 6, :as => :admin
+  match 'contact_us' => 'pages#show', :id => 7, :as => :contact_us
+
+  
+  match 'home' => 'pages#home', :as => :home, :via => :get
+  match 'admin' => 'pages#admin', :as => :admin, :via => :get
 
   root :to => 'pages#home'
   
