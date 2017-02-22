@@ -13,17 +13,17 @@
     <% if event.start.strftime("%b %d" ) == event.end.strftime("%b %d") %>
     <div class="calendar-ii" style="margin-left: 4.5em;">
       <div class="calendar_month-ii"><%= event.start.strftime("%b") %></div>
-      <div class="calendar_date-ii"><%= event.start.strftime("%d") %></div>
+      <div class="calendar_date-ii"><%= event.start.strftime("%-d") %></div>
     </div>
     <% else %>
     <div class="calendar-ii" style="float: left; margin-left: 2.5em;">
       <div class="calendar_month-ii"><%= event.start.strftime("%b") %></div>
-      <div class="calendar_date-ii"><%= event.start.strftime("%d") %></div>
+      <div class="calendar_date-ii"><%= event.start.strftime("%-d") %></div>
     </div>
     <span style="float: left; font-size: 1em; margin: 0.5em 0 0 0;">&#8211; </span>
     <div class="calendar-ii">
       <div class="calendar_month-ii"><%= event.end.strftime("%b") %></div>
-      <div class="calendar_date-ii"><%= event.end.strftime("%d") %></div>
+      <div class="calendar_date-ii"><%= event.end.strftime("%-d") %></div>
     </div>
     <% end %><br />
     <div class="location"><%= event.location.city + ", " + event.location.state %></div>

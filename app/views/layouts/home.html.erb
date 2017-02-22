@@ -9,6 +9,7 @@
   <%= csrf_meta_tags %>
 <body>
 <div class="container-fluid">
+
 	<nav class="navbar navbar-default navbar-fixed-top">
     <div class="login-bar">
       <% if signed_in? %>
@@ -22,8 +23,9 @@
     </div>
 		<%= render 'layouts/nav' %>
 	</nav>
-  <header>
 
+  <header>
+<div class="row">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
       <ol class="carousel-indicators">
@@ -56,7 +58,7 @@
       </a>
     </div><!-- /.carousel -->
   </header>
-
+</div>
 
 
 	<article class="container-fluid">
