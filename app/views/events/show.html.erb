@@ -5,7 +5,7 @@
 &markers=color:red%7Clabel:1%7C"+@event.location.latitude+","+@event.location.longitude+"&key=AIzaSyB7VXiMl6JcYSuuF6XreGXm9Wge3IssPO4" %>
 
 <% if signed_in?%>
-    <% if current_user.roles.any? {|role| role.name == "superuser" or role.name == "admin" } %>
+    <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
       <%= link_to 'Edit', edit_event_path(@event) %> | <%= link_to 'Back', events_path %>
     <% end %>
 <% end %>
@@ -119,3 +119,4 @@
   <% end %>
   </div>
 </div>
+
