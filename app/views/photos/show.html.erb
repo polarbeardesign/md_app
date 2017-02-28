@@ -1,10 +1,22 @@
-<div class="photo-viewer"><%= image_tag @photo.image.to_s, :width => '100%' %></div>
+
+<% the_gallery = @photo.gallery.photos %>
+<% position = the_gallery.index(@photo) %>
+<% array_size = the_gallery.size - 1 %>
+
+<% if position > 0 %>
+  <%= link_to '<= previous', photo_path(the_gallery[position - 1]) %> | 
+<% end %>
+<% if position < array_size %>
+<%= link_to 'next =>', photo_path(the_gallery[position + 1]) %>
+<% end %>
+<div class="photo-viewer"><img src="<%= @photo.image.to_s %>" width='100%' /></div>
 <div class="photo_title"><%= @photo.photo_title %></div>
 <div class="photo_credit">credit: <%= @photo.credit %></div>
   
 <% if signed_in?%>
   <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
     <%= link_to 'Edit', edit_photo_path(@photo) %> |
+    <%= link_to 'Destroy', @photo, :confirm => 'Are you sure?', :method => :delete %> |
   <% end %>
 <% end %>
 <%= link_to 'Back', photos_path %>
