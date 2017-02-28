@@ -3,7 +3,7 @@
 load 'deploy/assets'
 
 set :user, 'marshall'
-set :domain, 'marshallingdetachemnt.org'
+set :domain, 'marshallingdetachment.org'
 
 set :application, "caf_md_app"
 set :repository,  "git@github.com:polarbeardesign/md_app.git"
