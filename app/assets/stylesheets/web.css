@@ -9,7 +9,7 @@
   lt blue=> #e1f4f7;
   grey   => #999999;
 */
-
+/*
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -31,8 +31,8 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+/*article, aside, details, /*figcaption, figure, */
+/*footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
@@ -53,7 +53,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+*/
 /*----------------------------------------------------
    Basic Styles
 -------------------------------------------------------*/
@@ -407,6 +407,10 @@ text-align: center;
   background: url('/assets/carousel_4.jpg')  no-repeat center;
   }
 
+.carousel-image-five {
+  background: url('/assets/carousel_5.jpg')  no-repeat center;
+  }
+
 .photo_cell {
   display: inline-block;
   text-align: center;
@@ -431,6 +435,26 @@ text-align: center;
   text-align: right;
   font-size: 0.75em;
   font-style: italic;
+}
+
+.figure-caption {
+  font-style: italic;
+  text-align: center;
+  font-size: 0.9em;
+  margin: 0.5em;
+}
+
+.figure-right {
+  float: right;
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  margin: 0 0 1em 1em;
+  width: 30%;
+}
+
+.figure-right img {
+  width: 100%;
+  border: 1px solid #000;
 }
 
 @media (min-width: 768px) {
