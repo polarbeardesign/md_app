@@ -11,7 +11,7 @@
 
 
   <div class="photo_cell">
-    <%= link_to (image_tag photo.image.url(:thumb).to_s ), photo_path(photo) %><br />
+    <a href="/photos/<%= photo.id %>"><img src="<%= photo.image.url(:thumb).to_s %>" /></a><br />
     <%= photo.photo_title %>
   </div>
 
