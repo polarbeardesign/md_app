@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :gallery_id %><br />
-    <%= f.collection_select :gallery_id, Gallery.all, :id, :gallery_name, options = {:order => 'gallery_name ASC', :prompt => true}, html_options = {:class => "styled-select"} %>
+    <%= f.collection_select :gallery_id, Gallery.all, :id, :gallery_name, options = {:order => 'gallery_name ASC', :prompt => true, :selected => params['gallery_id']}, html_options = {:class => "styled-select"} %>
   </div>
   <div class="field">
     <%= f.label :credit %><br />
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :image %><br />
-    <%= f.file_field :image %>
+    <%= f.file_field :image %><%= @photo.image %>
   </div>
   <div class="field">
     <%= f.label :position %><br />

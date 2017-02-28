@@ -11,7 +11,7 @@
 
 
   <div class="photo_cell">
-    <%= link_to (image_tag photo.image.url(:thumb).to_s ), photo_path(photo) %><br />
+    <a href="/photos/<%= photo.id %>"><img src="<%= photo.image.url(:thumb).to_s %>" /></a><br />
     <%= photo.photo_title %>
   </div>
 
@@ -28,7 +28,7 @@
 <% if signed_in?%>
   <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
     <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
-    <%= link_to 'Add Photo', new_photo_path %> |
+    <%= link_to 'Add Photo', new_photo_path(:gallery_id => @gallery.id) %> |
   <% end %>
 <% end %>
 <%= link_to 'Back', galleries_path %>

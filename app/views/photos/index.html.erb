@@ -21,7 +21,7 @@
     <td><%= photo.credit %></td>
     <td><%= photo.photo_title %></td>
     <td><%= photo.description %></td>
-    <td><%= image_tag photo.image.url(:thumb).to_s %></td>
+    <td><img src="<%= photo.image.url(:thumb).to_s %>"  /></td>
     <td><%= photo.position %></td>
     <td><%= link_to 'Show', photo %></td>
     <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
