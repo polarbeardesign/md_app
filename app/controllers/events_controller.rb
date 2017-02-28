@@ -5,7 +5,7 @@ skip_before_filter :check_authorization, :check_authentication, :only => [:index
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.confirmed.ordered.published.all
 
     respond_to do |format|
       format.html # index.html.erb

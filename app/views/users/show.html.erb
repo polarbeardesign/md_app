@@ -1,0 +1,25 @@
+<h1>User Info</h1>
+
+<p>
+  <strong><%= @user.member.first_name + ' ' + @user.member.last_name %></strong>
+</p>
+
+<p>
+  <em>Username:</em>
+  <%= @user.email %>
+</p>
+
+<p>
+  <em>Sign in Count:</em>
+  <%= @user.sign_in_count %>
+</p>
+
+<p>
+  <em>Last sign in at:</em>
+  <% if !@user.last_sign_in_at.nil? %>
+    <%= @user.last_sign_in_at.strftime("%b %d, %Y %H:%M") %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%#= link_to 'Back', users_path %>

@@ -8,7 +8,7 @@
 </p>
 
 <% if signed_in?%>
-  <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "admin" } %>
+  <% if current_user.roles.any? {|role| role.name == "SuperUser" or role.name == "Admin" } %>
     <%= link_to 'Edit', edit_page_path(@page)  %> |
     <%= link_to 'Back', pages_path %>
   <% end %>
