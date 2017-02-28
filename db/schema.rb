@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160512162852) do
+ActiveRecord::Schema.define(:version => 20170228154557) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -55,6 +56,23 @@ ActiveRecord::Schema.define(:version => 20160512162852) do
   add_index "events", ["event_type_id"], :name => "index_events_on_event_type_id"
   add_index "events", ["location_id"], :name => "index_events_on_location_id"
 
+  create_table "galleries", :force => true do |t|
+    t.integer  "gallery_category_id"
+    t.integer  "media_type_id"
+    t.string   "gallery_name"
+    t.string   "description"
+    t.string   "gallery_pic"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gallery_categories", :force => true do |t|
+    t.string   "category_name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "grants", :force => true do |t|
     t.integer  "right_id"
     t.integer  "role_id"
@@ -74,6 +92,12 @@ ActiveRecord::Schema.define(:version => 20160512162852) do
     t.string   "state"
     t.string   "latitude"
     t.string   "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media_types", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,6 +125,25 @@ ActiveRecord::Schema.define(:version => 20160512162852) do
 
   add_index "members", ["user_id"], :name => "index_members_on_user_id"
 
+  create_table "menu_items", :force => true do |t|
+    t.integer  "menu_id"
+    t.integer  "parent_id"
+    t.string   "display"
+    t.string   "url"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "menu_items", ["menu_id"], :name => "index_menu_items_on_menu_id"
+
+  create_table "menus", :force => true do |t|
+    t.string   "menu_name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "body"
@@ -108,9 +151,13 @@ ActiveRecord::Schema.define(:version => 20160512162852) do
     t.datetime "updated_at"
   end
 
-  create_table "pdf_files", :force => true do |t|
-    t.string   "title"
-    t.string   "filename"
+  create_table "photos", :force => true do |t|
+    t.integer  "gallery_id"
+    t.string   "credit"
+    t.string   "photo_title"
+    t.string   "description"
+    t.string   "image"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

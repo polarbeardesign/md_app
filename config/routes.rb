@@ -1,6 +1,13 @@
 MdApp::Application.routes.draw do
 
 
+  resources :menu_items do
+    collection { post :sort}
+  end
+
+  resources :menus
+
+
   resources :photos
 
   resources :galleries
@@ -47,6 +54,8 @@ devise_for :users, :skip => [:registrations]
   match 'about_us' => 'pages#show', :id => 4, :as => :about_us
   match 'admin' => 'pages#show', :id => 6, :as => :admin
   match 'contact_us' => 'pages#show', :id => 7, :as => :contact_us
+  match 'member_application_received' => 'members#member_application_received', :as => :member_application_received
+  match 'member_admin' => 'members#member_admin', :as => :member_admin
 
   
   match 'home' => 'pages#home', :as => :home, :via => :get

@@ -1,0 +1,52 @@
+<h1><%=  @page.title %></h1>
+
+<%=  markdown @page.body %>
+
+<h3>Information Received</h3>
+
+<section>
+<h3>Contact Info</h3>
+
+    <p><%= @member.first_name %> <%= @member.last_name %><br />
+    <%= @member.street_1 %><br />
+    <% if @member.street_2? %>
+      <em>Address2:</em> <strong><%= @member.street_2 %><br />
+    <% end %>
+    <%= @member.city %>, <%= @member.state %> <%= @member.zip %></p>
+
+  <p><%= @member.user.email %></p>
+  <p>
+  <% if @member.home_phone? %>
+      <em>Home:</em> <%= @member.home_phone %><br />
+    </div>
+  <% end %>
+  <% if @member.work_phone? %>
+      <em>Work:</em><%= @member.work_phone %><br />
+  <% end %>
+  <% if @member.cell_phone? %>
+      <em>Cell:</em> <%= @member.cell_phone %><br />
+  <% end %>
+</p>
+</section>
+
+<section>
+<h3>Skills &amp; areas of expertise</h3>
+
+  <%= markdown @member.skills %>
+
+</section>
+
+<section>
+<h3>Emergency Info</h3>
+<p>
+  <em>Contact Name:</em> <%= @member.ec_name %><br />
+  <em>Contact Phone:</em> <%= @member.ec_phone %>
+</p>
+</section>
+
+<section>
+<h3>CAF Info</h3>
+  <p><em>CAF Col No:</em> <%= @member.caf_col_no %></p>
+</section>
+
+
