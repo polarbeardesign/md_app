@@ -1,42 +1,51 @@
-  <div class="container-fluid">
-      <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    
-     <div class="collapse navbar-collapse" id="bs-example-navbar">
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'CAF Marshalling Detachment', home_path %></li>
-        <li><%= link_to 'About', about_us_path %>
-        <!--  <ul>
-            <li><a href="#">History</a></li>
-            <li><a href="#">Detachment Officers</a></li>
-            <li><a href="#">Cadet Corner</a></li>
-            <li><a href="#">In Memoriam</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>--></li>
-        <li><%= link_to 'Ramp Safety', ramp_safety_path %></li>
-        <li><%= link_to 'News and Events', events_path %></li>
-        <li><%= link_to 'Galleries', galleries_path %></li>
-        <li><%= link_to 'Contact Us', contact_us_path %></li>
-        <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Members<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <% if user_signed_in? %>
-            <li><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></li>
-            <% else %>
-            <li><%= link_to "Log In", login_path %></li>
+<a name="nav"></a>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+
+<div class="login-bar">
+  <% if user_signed_in? %>
+    Welcome: <%= current_user.member.first_name + ' ' + current_user.member.last_name %> | 
+    <%= link_to current_user.email, member_path(current_user.member) %> | 
+    Last login: <%= current_user.last_sign_in_at.strftime('%H:%M on %m/%d/%y') %> | 
+    <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to 'Member Login', login_path %>
+  <% end %>
+</div>
+
+<div>
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <div class="navbar-collapse navbar-collapse_ collapse">
+    <ul class="nav navbar-nav sf-menu clearfix">
+      <% @main_menu.each do |menu| %>
+        <% if menu.display != "Admin" %>
+        <li class="dropdown" ><a href="<%= menu.url %>" class="dropdown-toggle"><%= menu.display %></a>
+        <% end %>
+        <% if menu.display == "Admin" %>
+          <% if signed_in?%>
+            <% if current_user.roles.any? {|role| role.name == "superuser" or role.name == "Admin"} %>
+              <li class="dropdown" ><a href="<%= menu.url %>" class="dropdown-toggle"><%= menu.display %></a>
             <% end %>
-           <% if user_signed_in? %>
-          <% if current_user.roles.any? {|role| role.name == "Admin"  or role.name == "SuperUser" } %>
-            <li><%= link_to "Admin", admin_path %></li>
           <% end %>
-          <% end %>
+        <% end %>
+        <% if @sub_menu.collect(&:parent_id).include?(menu.id) %>
+          <ul class="dropdown-menu">
+            <% @sub_menu.each do |submenu| %>
+              <% if submenu.parent_id == menu.id %>
+                <li><a href="<%= submenu.url %>"><%= submenu.display %></a></li>
+              <% end %>
+            <% end %>
+          </ul>
+        <% end %>
         </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+</nav>

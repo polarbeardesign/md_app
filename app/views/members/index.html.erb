@@ -1,27 +1,30 @@
 <%= render "scripts" %>
 
-<%= button_to 'New Member', new_member_path, {:method => 'get', :class => "crud-nav"} %>
-
 <h1>Members</h1>
 
-<h1>Members List - [<%= @members.size %>]</h1> 
 
-<table class="table_border">
-  <tr>
-    <th>Name</th>
-    <th>Location</th>
-    <th>Email</th>
-  </tr>
+<% if signed_in?%>
+  <% if current_user.roles.any? {|role| role.name == "Member" } %>
 
-<% @members.each do |member| %>
-  <tr class="<%= cycle('odd_row', 'even_row') %>">
-    <td><%= link_to member.last_name+", "+member.first_name, edit_member_path(member) %></td>
-    <% if member.city? %>
-      <td><%= member.city+", "+member.state %></td>
-    <% else %>
-      <td>---</td>    
-    <% end %>
-    <td><%= member.user.email %></td>
-  </tr>
+Documents
+
+  <% end %>
+<% else %>
+<%= form_for(@member) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=  markdown @page.body %>
+
+<%= render 'application_form' %>
+ <% end %>
 <% end %>
-</table>

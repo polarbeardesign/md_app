@@ -1,7 +1,24 @@
 class MembersController < ApplicationController
+
+  skip_before_filter :check_authorization, :check_authentication, :only => [:index, :member_application, :member_application_received, :create]
+
   # GET /members
   # GET /members.json
   def index
+    @members = Member.all
+    @page = Page.find_by_id(8)
+
+    @member = Member.new
+    user = @member.build_user
+    @roles = Role.find(:all)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @members }
+    end
+  end
+
+  def member_admin
     @members = Member.all
 
     respond_to do |format|
@@ -40,6 +57,18 @@ class MembersController < ApplicationController
 		@roles = Role.find(:all)
   end
 
+  # show member application profile
+  def member_application_received
+    @member = Member.find(params[:id])
+    @page = Page.find_by_id(9)
+    #@products = Product.membership.all
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @member }
+    end
+  end
+
   # POST /members
   # POST /members.json
   def create
@@ -59,8 +88,14 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to @member, :notice => 'Member was successfully created.' }
-        format.json { render :json => @member, :status => :created, :location => @member }
+        if params[:Submit] == "Submit Application" 
+          MemberApplicationNotifier.created(@member).deliver
+          format.html { redirect_to member_application_received_path(:id => @member), :notice => 'Application was successfully submitted and a copy has been emailed for your records.' }
+          format.json { head :ok }
+        else
+          format.html { redirect_to @member, :notice => 'Member was successfully created.' }
+          format.json { render :json => @member, :status => :created, :location => @member }
+        end
       else
         format.html { render :action => "new" }
         format.json { render :json => @member.errors, :status => :unprocessable_entity }
