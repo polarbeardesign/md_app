@@ -1,0 +1,25 @@
+<%= form_for(@social_link) do |f| %>
+  <% if @social_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@social_link.errors.count, "error") %> prohibited this social_link from being saved:</h2>
+
+      <ul>
+      <% @social_link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :social_brand_id %><br />
+    <%= f.collection_select :social_brand_id, SocialBrand.all, :id, :social_brand_name, options = {:prompt => true}, html_options = {:class => "styled-select"} %>
+  </div>
+  <div class="field">
+    <%= f.label :brand_url %><br />
+    <%= f.text_field :brand_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

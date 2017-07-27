@@ -1,6 +1,12 @@
 MdApp::Application.routes.draw do
 
 
+  resources :social_links
+
+
+  resources :social_brands
+
+
   resources :menu_items do
     collection { post :sort}
   end

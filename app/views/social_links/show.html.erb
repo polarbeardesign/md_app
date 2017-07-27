@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Social brand:</b>
+  <%= @social_link.social_brand.social_brand_name %>
+</p>
+
+<p>
+  <b>Brand url:</b>
+  <%= @social_link.brand_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_social_link_path(@social_link) %> |
+<%= link_to 'Back', social_links_path %>

@@ -1,0 +1,25 @@
+<h1>Listing social_links</h1>
+
+<table>
+  <tr>
+    <th>Social brand</th>
+    <th>Brand url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @social_links.each do |social_link| %>
+  <tr>
+    <td><%= social_link.social_brand.social_brand_name %></td>
+    <td><%= social_link.brand_url %></td>
+    <td><%= link_to 'Show', social_link %></td>
+    <td><%= link_to 'Edit', edit_social_link_path(social_link) %></td>
+    <td><%= link_to 'Destroy', social_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Social link', new_social_link_path %>
