@@ -1,0 +1,25 @@
+<%= form_for(@social_brand) do |f| %>
+  <% if @social_brand.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@social_brand.errors.count, "error") %> prohibited this social_brand from being saved:</h2>
+
+      <ul>
+      <% @social_brand.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :social_brand_name %><br />
+    <%= f.text_field :social_brand_name %>
+  </div>
+  <div class="field">
+    <%= f.label :brand_icon %><br />
+    <%= f.text_field :brand_icon %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

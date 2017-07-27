@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20170228154557) do
+ActiveRecord::Schema.define(:version => 20170727160841) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20170228154557) do
     t.date     "caf_join_date"
     t.string   "ec_name"
     t.string   "ec_phone"
+    t.text     "skills"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -174,6 +175,22 @@ ActiveRecord::Schema.define(:version => 20170228154557) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "social_brands", :force => true do |t|
+    t.string   "social_brand_name"
+    t.string   "brand_icon"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "social_links", :force => true do |t|
+    t.integer  "social_brand_id"
+    t.string   "brand_url"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "social_links", ["social_brand_id"], :name => "index_social_links_on_social_brand_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
