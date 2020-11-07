@@ -7,6 +7,7 @@ class MembersController < ApplicationController
   def index
     @members = Member.all
     @page = Page.find_by_id(8)
+	@pdf_files = PdfFile.all
 
     @member = Member.new
     user = @member.build_user

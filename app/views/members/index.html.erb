@@ -6,7 +6,12 @@
 <% if signed_in?%>
   <% if current_user.roles.any? {|role| role.name == "Member" } %>
 
-Documents
+<h2>Documents</h2>
+<ul>
+<% @pdf_files.each do |pdf_file| %>
+  <li><%= link_to pdf_file.title, pdf_file.filename.to_s %></li>
+<% end %>
+</ul>
 
   <% end %>
 <% else %>
