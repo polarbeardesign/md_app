@@ -26,7 +26,7 @@ gem 'metamagic'
 gem 'aasm'
 
 # to avoid railties conflict...
-gem 'i18n', '0.6.11'
+gem 'i18n', '0.8.0'
 
 # Deploy with Capistrano
  gem 'capistrano', '< 2.15.5'
